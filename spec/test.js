@@ -4,29 +4,42 @@ var expect = require("chai").expect;
 // all of these tests are pending...make sure to add , function(){ expect ....}
 
 describe('first', function() {
-  it('should be able to pull out the first element of an array');
-    // expect(myFunctions.first([1,2,3])).to.equal(1);
-
-
-  it('should be able to accept a user-defined index first([1,2,3],2) should return [1,2]');
-
+  it('should be able to pull out the first element of an array', function(){
+    expect(myFunctions.first([1,2,3])).to.equal(1);
   });
+  it("should be able to return null if n is zero", function(){
+    expect(myFunctions.first([1,2,3],0)).to.eql(null);
+  });
+
+  it('should be able to accept a user-defined index first([1,2,3],2) should return [1,2]', function(){
+    expect(myFunctions.first([1,2,3],2)).to.eql([1,2]);
+  });
+});
 
 
 describe('last', function() {
-  it('should pull the last element from an array');
+  it('should pull the last element from an array', function(){
+    expect(myFunctions.last([1,2,3])).to.eql(3);
+  });
 
-  it('should accept an index argument');
+  it('should accept an index argument', function(){
+    expect(myFunctions.last([1,2,3],2)).to.eql([2,3]);
+  });
 
-  it('should return nothing if zero is passed in as the index');
+  it('should return nothing if zero is passed in as the index', function(){
+    expect(myFunctions.last([1,2,3],0)).to.eql(null);
+  });
 
-  it('should return all the array\'s elements if the index argument is larger than the length of the array');
+  it('should return all the array\'s elements if the index argument is larger than the length of the array', function(){
+    expect(myFunctions.last([1,2,3],4)).to.eql([1,2,3]);
+  });
 
 });
 
 describe('uniq', function() {
-  it('should return all unique values contained in an unsorted array');
-
+  it('should return all unique values contained in an unsorted array', function(){
+    expect(myFunctions.uniq([2,2,4,1])).to.eql(2,4,1);
+  });
 });
 
 
