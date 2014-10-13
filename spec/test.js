@@ -7,6 +7,7 @@ describe('first', function() {
   it('should be able to pull out the first element of an array', function(){
     expect(myFunctions.first([1,2,3])).to.equal(1);
   });
+
   it("should be able to return null if n is zero", function(){
     expect(myFunctions.first([1,2,3],0)).to.eql(null);
   });
@@ -44,21 +45,25 @@ describe('uniq', function() {
 
 
 describe('pluck', function() {
-  it('should return values contained at a user-defined property');
-    // var people = [
-    //   {name : 'moe', age : 30},
-    //   {name : 'curly', age : 50}
-    // ];
+  it('should return values contained at a user-defined property', function(){
+    var people = [
+      {name : 'moe', age : 30},
+      {name : 'curly', age : 50}
+    ];
 
-    // expect(myFunctions.pluck(people, 'name')).to.eql(['moe', 'curly']);
+    expect(myFunctions.pluck(people, 'name')).to.eql(['moe', 'curly']);
+  });
+
 });
 
 describe('contains', function() {
-  it('should return false if a collection does not contain a user-specified value');
+  it('should return false if a collection does not contain a user-specified value', function(){
+    expect(myFunctions.contains([ 1, 2, 3], 4)).to.eql(false);
+  });
 
-  it('should return true if a collection contains a user-specified value');
-    // expect(myFunctions.contains([  4,   5,   6], 5)).to.equal(true);
-
+  it('should return true if a collection contains a user-specified value', function(){
+    expect(myFunctions.contains([  4,   5,   6], 5)).to.equal(true);
+  });
 });
 
 describe('flatten', function() {

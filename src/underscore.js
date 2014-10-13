@@ -40,22 +40,34 @@ var myFunctions = {
   uniq: function(array) {
     var results = [];
       for (var i = 0; i < array.length; i++) {
-        if (array[i])
+        if (results.indexOf(array[i]) < 0){
+         results.push(array[i]);
+        }
         return results[i];
       }
   },
 
-  // Takes an array of objects and returns and array of the values of
+  // Takes an array of objects and returns an array of the values of
   // a certain property in it. E.g. take an array of people objects
   // (which have a name and an age) and return an array of just their ages
   pluck: function(array, key) {
-
+    var results = [];
+      for (var i = 0; i < array.length; i++) {
+          results.push(array[i][key]);//but shouldn't it be .key instead since they are objects?
+        }
+        return results;
   },
 
  // Determine if the array contains a given value (using `===`).
  // TIP: There are multiple solutions to this problem, ranging from one line to using reduce();
   contains: function(array, target) {
-
+    var status = false;
+    for (var i = array.length - 1; i >= 0; i--) {
+      if (array[i] === target){
+        status = true;
+      }
+    }
+    return status;
   },
 
   // Turns a multidimensional array into a single array
@@ -64,6 +76,7 @@ var myFunctions = {
   // Also, you will need to use recursion
   // when you find an array inside of an array
   flatten: function(array) {
+    var flattened = [];
 
   }
 };
